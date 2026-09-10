@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 
 export default function VideoPage() {
   useEffect(() => {
-    // pause background music while video plays (video may have its own sound)
     window._bgSuppressed = true
     return () => { window._bgSuppressed = false }
   }, [])
@@ -30,8 +29,8 @@ export default function VideoPage() {
         />
       </div>
 
-      <p style={{ fontSize: 14, color: 'var(--muted)', marginTop: 18, maxWidth: 420 }}>
-        okay maybe I'm being dramatic. but I really am sorry.
+      <p style={{ fontSize: 15, color: 'var(--accent)', fontWeight: 600, marginTop: 18, maxWidth: 420 }}>
+        please don't stay upset with me for too long 🥺
       </p>
 
       <Link to="/closing" className="btn" style={{ marginTop: 26 }}>
