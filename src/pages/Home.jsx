@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom'
 import FloatingHearts from '../components/FloatingHearts.jsx'
 
 export default function Home() {
+  const handleStart = () => {
+    if (window._startSorryMusic) window._startSorryMusic()
+  }
+
   return (
     <div className="page" style={{ position: 'relative', display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'center', minHeight: '90vh', textAlign: 'center' }}>
@@ -14,7 +18,7 @@ export default function Home() {
         <p className="lead" style={{ margin: '0 auto 40px' }}>
           I know I hurt you. please just give me a minute.
         </p>
-        <Link to="/sorry-1" className="btn">okay →</Link>
+        <Link to="/sorry-1" className="btn" onClick={handleStart}>okay →</Link>
       </div>
     </div>
   )
