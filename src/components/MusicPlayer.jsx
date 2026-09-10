@@ -10,15 +10,13 @@ export default function MusicPlayer() {
     audio.volume = 0
     audioRef.current = audio
 
-    const tryStart = () => {
+    // Expose globally so Home page "let's go" / okay button can start it
+    window._startSorryMusic = () => {
+      if (playing) return
       audio.play().then(() => { fadeTo(audio, 0.35); setPlaying(true) }).catch(() => {})
     }
-    window.addEventListener('pointerdown', tryStart, { once: true })
 
-    return () => {
-      window.removeEventListener('pointerdown', tryStart)
-      audio.pause()
-    }
+    return () => { audio.pause() }
   }, [])
 
   const fadeTo = (audio, target) => {
